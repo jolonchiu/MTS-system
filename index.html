@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>《查大 MTS 主升段系統》實戰操盤養成班</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #0f172a;
+            --secondary: #1e293b;
+            --accent: #f59e0b;
+            --accent-hover: #d97706;
+            --bg: #f8fafc;
+            --card-bg: #ffffff;
+            --text-main: #334155;
+            --text-light: #64748b;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Noto Sans TC', sans-serif;
+            background-color: var(--bg);
+            color: var(--text-main);
+            line-height: 1.7;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Hero 區塊 */
+        header {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: white;
+            text-align: center;
+            padding: 60px 20px;
+            border-radius: 0 0 30px 30px;
+            box-shadow: 0 10px 25px -5px rgba(0,0,0,0.2);
+        }
+
+        header .badge {
+            background: var(--accent);
+            color: var(--primary);
+            padding: 6px 16px;
+            font-weight: 700;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+
+        header h1 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 900;
+            margin-bottom: 15px;
+            letter-spacing: -1px;
+        }
+
+        header p {
+            font-size: clamp(1.1rem, 2vw, 1.3rem);
+            color: #94a3b8;
+            margin-bottom: 30px;
+        }
+
+        /* 按鈕樣式 */
+        .btn-group {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            align-items: center;
+            margin-top: 25px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            width: 100%;
+            max-width: 420px;
+            padding: 16px 28px;
+            font-size: 1.15rem;
+            font-weight: 700;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .btn-primary {
+            background-color: var(--accent);
+            color: var(--primary);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--accent-hover);
+            transform: translateY(-2px);
+        }
+
+        .btn-line {
+            background-color: #06c755;
+            color: white;
+        }
+
+        .btn-line:hover {
+            background-color: #05b14c;
+            transform: translateY(-2px);
+        }
+
+        /* 區塊通用樣式 */
+        section {
+            background: var(--card-bg);
+            margin: 35px auto;
+            padding: 40px 30px;
+            border-radius: 20px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+        }
+
+        h2 {
+            font-size: 1.75rem;
+            font-weight: 800;
+            margin-bottom: 25px;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border-bottom: 2px solid #f1f5f9;
+            padding-bottom: 15px;
+        }
+
+        h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin: 20px 0 10px 0;
+            color: var(--primary);
+        }
+
+        /* 痛點清單 */
+        .pain-list {
+            list-style: none;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 12px;
+            margin: 20px 0;
+        }
+        @media(min-width: 600px) { .pain-list { grid-template-columns: 1fr 1fr; } }
+
+        .pain-item {
+            background: #fef2f2;
+            border: 1px solid #fecaca;
+            color: #991b1b;
+            padding: 15px 20px;
+            border-radius: 10px;
+            font-weight: 600;
+        }
+
+        /* 比較表格 */
+        .compare-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .compare-table th, .compare-table td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .compare-table th {
+            background: var(--primary);
+            color: white;
+            font-size: 1.1rem;
+        }
+
+        .compare-table tr:nth-child(even) { background: #f8fafc; }
+
+        /* 模組卡片格線 */
+        .modules-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        @media(min-width: 768px) { .modules-grid { grid-template-columns: 1fr 1fr; } }
+
+        .module-card {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            padding: 25px;
+            border-radius: 12px;
+            transition: transform 0.2s;
+        }
+        .module-card:hover { transform: translateY(-3px); }
+
+        .module-card ul {
+            list-style: none;
+            margin-top: 12px;
+        }
+        .module-card li {
+            padding: 5px 0;
+            color: var(--text-light);
+            font-weight: 500;
+        }
+
+        /* 流程步驟 */
+        .process-list {
+            list-style: none;
+            counter-reset: step;
+        }
+        .process-list li {
+            counter-increment: step;
+            position: relative;
+            padding: 15px 15px 15px 50px;
+            margin-bottom: 12px;
+            background: #f1f5f9;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+        .process-list li::before {
+            content: counter(step);
+            position: absolute;
+            left: 15px; top: 50%;
+            transform: translateY(-50%);
+            background: var(--primary);
+            color: white;
+            width: 26px; height: 26px;
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 0.9rem;
+        }
+
+        .highlight-box {
+            background: #fffbeb;
+            border-left: 4px solid var(--accent);
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 0 10px 10px 0;
+            font-weight: 700;
+            color: #92400e;
+            text-align: center;
+            font-size: 1.15rem;
+        }
+
+        /* 檢查表與清單 */
+        .check-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 10px;
+            margin: 20px 0;
+        }
+        .check-item {
+            background: #f0fdf4;
+            border: 1px solid #bbf7d0;
+            color: #166534;
+            padding: 12px 15px;
+            border-radius: 8px;
+            font-weight: 600;
+        }
+
+        /* 見證卡片 */
+        .testimonial-card {
+            background: #f8fafc;
+            border-left: 4px solid var(--accent);
+            padding: 20px;
+            margin-bottom: 15px;
+            border-radius: 0 10px 10px 0;
+        }
+        .testimonial-card h4 {
+            color: var(--primary);
+            margin-bottom: 5px;
+        }
+        .testimonial-card p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        /* 價格與資訊卡 */
+        .price-box {
+            background: #eff6ff;
+            border: 2px solid #3b82f6;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            margin: 25px 0;
+        }
+        .price-box .old-price {
+            text-decoration: line-through;
+            color: #94a3b8;
+            font-size: 1.2rem;
+        }
+        .price-box .new-price {
+            color: #dc2626;
+            font-size: 2.2rem;
+            font-weight: 900;
+            margin: 10px 0;
+        }
+
+        /* 免責聲明 */
+        .disclaimer {
+            font-size: 0.85rem;
+            color: #94a3b8;
+            background: #f1f5f9;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 40px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container" style="padding:0;">
+            <div class="badge">🔥 實戰操盤養成班</div>
+            <h1>《查大 MTS 主升段系統》</h1>
+            <p>不教明牌｜不靠猜盤｜教你一套能用一輩子的交易系統</p>
+            <div class="btn-group">
+                <a href="https://reurl.cc/NQZAo5" target="_blank" class="btn btn-primary">
+                    <i class="fa-solid fa-rocket"></i> 立即填表報名（特價 NT$ 9,888）
+                </a>
+                <a href="https://line.me/ti/p/@504gkpdf" target="_blank" class="btn btn-line">
+                    <i class="fa-brands fa-line"></i> 有問題直接私訊 LINE (@504gkpdf)
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        
+        <!-- 痛點區 -->
+        <section>
+            <h2><i class="fa-solid fa-circle-exclamation" style="color: var(--accent);"></i> 你是不是也有這些困擾？</h2>
+            <ul class="pain-list">
+                <li class="pain-item">✔ 常常買在高點、賣在低點？</li>
+                <li class="pain-item">✔ 看很多老師，卻越學越亂？</li>
+                <li class="pain-item">✔ 指標一堆，不知道什麼時候該用？</li>
+                <li class="pain-item">✔ 靠感覺操作，資金忽大忽小？</li>
+            </ul>
+            <div class="highlight-box">
+                如果你中了 2 項以上，代表你缺的不是技術——👉 是一套「完整可複製的系統」。
+            </div>
+        </section>
+
+        <!-- 課程核心定位 -->
+        <section>
+            <h2><i class="fa-solid fa-bullseye" style="color: var(--accent);"></i> 課程核心定位</h2>
+            <table class="compare-table">
+                <thead>
+                    <tr>
+                        <th>市面上的課程，多半教你：</th>
+                        <th>《查大 MTS 主升段系統》教你的是：</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>❌ 指標怎麼畫</td>
+                        <td>✅ 什麼時候該進 / 什麼時候一定不碰</td>
+                    </tr>
+                    <tr>
+                        <td>❌ 型態怎麼背</td>
+                        <td>✅ 怎麼提前卡位主升段</td>
+                    </tr>
+                    <tr>
+                        <td>❌ 明牌怎麼跟</td>
+                        <td>✅ 怎麼保護本金活下來</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div style="text-align: center; font-weight: 700; margin-top: 15px; font-size: 1.1rem; color: var(--primary);">
+                👉 從散戶 ➡️ 系統操作者 ➡️ 獨立選股者
+            </div>
+        </section>
+
+        <!-- 課程亮點 -->
+        <section>
+            <h2><i class="fa-solid fa-star" style="color: var(--accent);"></i> 課程五大亮點</h2>
+            <ul class="process-list">
+                <li><strong>建立「看得懂」的技術分析系統：</strong>只靠 K 線、均線、切線，看懂多空與整理，知道什麼時候「不能買」。</li>
+                <li><strong>五大實戰步驟打造個人操作系統：</strong>選股 ➔ 進場 ➔ 持有 ➔ 停利 / 停損，每一筆單都有理由，不再靠感覺。</li>
+                <li><strong>擺脫情緒綁架，夜夜好眠：</strong>進場前先決定最多賠多少、設定好風險報酬比，下單後安心睡覺。</li>
+                <li><strong>新聞解碼術，不再追高：</strong>學會分辨哪些是情緒新聞、哪些會真正影響股價，拒絕當追高韭菜。</li>
+                <li><strong>免費工具與 XQ 程式選股：</strong>不需買昂貴軟體，學會免費工具與 XQ 程式選股邏輯，讓選股變成流暢程序。</li>
+            </ul>
+        </section>
+
+        <!-- 課程四大模組 -->
+        <section>
+            <h2><i class="fa-solid fa-book-open" style="color: var(--accent);"></i> 課程四大核心模組</h2>
+            <div class="modules-grid">
+                <div class="module-card">
+                    <h3>🔰 第一單元｜技術地基</h3>
+                    <p style="font-size: 0.95rem; color: var(--text-light);">看懂市場語言，看盤不再靠運氣。</p>
+                    <ul>
+                        <li>✔ K線、均線、切線核心觀念</li>
+                        <li>✔ K線五虎將快速判斷法</li>
+                        <li>✔ 葛蘭碧八大法則</li>
+                        <li>✔ 支撐壓力與切線交易 SOP</li>
+                    </ul>
+                </div>
+                <div class="module-card">
+                    <h3>🛡 第二單元｜資金防爆</h3>
+                    <p style="font-size: 0.95rem; color: var(--text-light);">不讓一次錯誤毀掉全部資金。</p>
+                    <ul>
+                        <li>✔ 投資必懂五大認知</li>
+                        <li>✔ 重押 vs 分散實戰策略</li>
+                        <li>✔ 資金配置公式</li>
+                        <li>✔ 定期定額／金字塔應用</li>
+                    </ul>
+                </div>
+                <div class="module-card">
+                    <h3>📊 第三單元｜工具整合</h3>
+                    <p style="font-size: 0.95rem; color: var(--text-light);">用工具賺錢，不被消息面操控。</p>
+                    <ul>
+                        <li>✔ KD／MACD 正確用法</li>
+                        <li>✔ 指標失效辨識</li>
+                        <li>✔ 技術選股工具實戰</li>
+                        <li>✔ 新聞事件交叉應用</li>
+                    </ul>
+                </div>
+                <div class="module-card">
+                    <h3>🧩 第四單元｜實戰進階</h3>
+                    <p style="font-size: 0.95rem; color: var(--text-light);">從跟單族晉升自主操盤者。</p>
+                    <ul>
+                        <li>✔ 實戰選股流程</li>
+                        <li>✔ XQ 程式匯入與應用</li>
+                        <li>✔ 成交量與換手率解密</li>
+                        <li>✔ 均線扣抵轉多預測法</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 必填檢查表與流程 -->
+        <section>
+            <h2><i class="fa-solid fa-list-check" style="color: var(--accent);"></i> 核心武器：MTS 檢核與流程</h2>
+            <h3>📋 進場前必填檢查表</h3>
+            <div class="check-grid">
+                <div class="check-item">✅ 大盤趨勢</div>
+                <div class="check-item">✅ 個股趨勢</div>
+                <div class="check-item">✅ 支撐 / 壓力</div>
+                <div class="check-item">✅ 風險報酬比</div>
+                <div class="check-item">✅ 買進 / 賣出訊號</div>
+                <div class="check-item">✅ 停損 / 停利區</div>
+            </div>
+            <div style="font-weight: 700; color: #dc2626; margin: 10px 0;">👉 不符合 ＝ 不下單（杜絕情緒交易）</div>
+
+            <h3 style="margin-top: 30px;">🚀 標準操盤流程（每天照做）</h3>
+            <ul class="process-list">
+                <li>掃描候選股</li>
+                <li>套用 MTS 濾網</li>
+                <li>填寫檢查表</li>
+                <li>設定風控</li>
+                <li>紀律執行</li>
+            </ul>
+        </section>
+
+        <!-- 適合對象與成果 -->
+        <section>
+            <h2><i class="fa-solid fa-trophy" style="color: var(--accent);"></i> 學完你會得到什麼？</h2>
+            <div class="check-grid" style="margin-bottom: 25px;">
+                <div class="check-item" style="background:#eff6ff; border-color:#bfdbfe; color:#1e40af;">✅ 自主選股能力</div>
+                <div class="check-item" style="background:#eff6ff; border-color:#bfdbfe; color:#1e40af;">✅ 主升段卡位能力</div>
+                <div class="check-item" style="background:#eff6ff; border-color:#bfdbfe; color:#1e40af;">✅ 穩定風控能力</div>
+                <div class="check-item" style="background:#eff6ff; border-color:#bfdbfe; color:#1e40af;">✅ 長期操作系統</div>
+                <div class="check-item" style="background:#eff6ff; border-color:#bfdbfe; color:#1e40af; grid-column: 1 / -1;">✅ 不再依賴老師（變操盤者而非賭徒）</div>
+            </div>
+
+            <h3 style="margin-top: 25px;">誰適合這堂課？</h3>
+            <table class="compare-table">
+                <thead>
+                    <tr>
+                        <th>適合對象</th>
+                        <th>不適合對象</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>✔ 曾經賠過錢的人<br>✔ 想翻轉操作習慣的小白與老手<br>✔ 想建立系統、尋求穩定被動收入的人<br>✔ 不想再當市場韭菜的你</td>
+                        <td>❌ 想快速暴富<br>❌ 只想跟單不想學習者</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- 講師介紹 -->
+        <section>
+            <h2><i class="fa-solid fa-chalkboard-user" style="color: var(--accent);"></i> 講師經歷與專業資格</h2>
+            <p><strong>股海偵探 (Charles)</strong></p>
+            <ul style="list-style: none; margin-top: 10px; color: var(--text-light);">
+                <li>🎓 國立大學研究所經濟財金相關科系畢業</li>
+                <li>💼 券商新進人員教育訓練講師</li>
+                <li>📈 私立大學財經分享課程講師、股票基礎班講師</li>
+            </ul>
+        </section>
+
+        <!-- 學員心得 -->
+        <section>
+            <h2><i class="fa-solid fa-comments" style="color: var(--accent);"></i> 學員真實心得見證</h2>
+            <div class="testimonial-card">
+                <h4>學員 A（股票小白）：第一筆單就賺回學費！</h4>
+                <p>「以前盲目跟風追高殺低，跟查大學習技術分析與SOP後，不再像無頭蒼蠅。第一筆單就賺回學費，太開心了！」</p>
+            </div>
+            <div class="testimonial-card">
+                <h4>學員 B（家庭主婦）：進出有依據，內心安穩</h4>
+                <p>「學會用趨勢線避開下跌風險，擺脫韭菜命運，靠穩定操作為家庭增添收入，進出有依據真的非常踏實。」</p>
+            </div>
+            <div class="testimonial-card">
+                <h4>學員 C（上班族）：告別當沖壓力，擁抱波段收益</h4>
+                <p>「改用波段與XQ程式選股後，大幅節省時間，即便忙於工作也能掌握風險、獲得穩定波段收益。」</p>
+            </div>
+            <div class="testimonial-card">
+                <h4>學員 D（退休投資人）：退休生活充實有成就感</h4>
+                <p>「透過系統化操作與XQ選股，冷靜操作穩定獲利，玩兩個星期就賺回學費，退休生活充滿樂趣！」</p>
+            </div>
+        </section>
+
+        <!-- 報名資訊與費用 -->
+        <section style="background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); color: white; text-align: center;">
+            <h2 style="color: white; border-bottom-color: #334155; justify-content: center;">
+                <i class="fa-solid fa-gift" style="color: var(--accent);"></i> 課程資訊與專屬好禮
+            </h2>
+            <p style="color: #cbd5e1; margin-bottom: 15px;">
+                📍 上課地點：Youtube影音平台 ｜ ⏳ 上課時數：4-6小時（附電子講義）
+            </p>
+            <div style="color: var(--accent); font-weight: 700; margin-bottom: 20px;">
+                🎁 報名即贈：1. 私LINE課輔2個月 ｜ 2. 100天無限次數複習 ｜ 3. XS選股原始程式碼(跳空、突破、轉折)
+            </div>
+
+            <div class="price-box" style="background: rgba(255,255,255,0.1); border-color: var(--accent);">
+                <div class="old-price" style="color: #94a3b8;">原價：NT$ 16,888 元</div>
+                <div class="new-price" style="color: var(--accent);">限時特價：NT$ 9,888 元</div>
+            </div>
+
+            <div style="text-align: left; background: rgba(0,0,0,0.2); padding: 20px; border-radius: 10px; margin: 20px 0; color: #e2e8f0;">
+                <strong>💳 繳費方式：</strong><br>
+                玉山銀行 (代碼 808) 帳號：<strong>0761-968-111636</strong><br>
+                完成匯款後請提供：1. 帳號後5碼 2. 私訊 LINE (@504gkpdf) 確認。
+            </div>
+
+            <div class="btn-group">
+                <a href="https://reurl.cc/NQZAo5" target="_blank" class="btn btn-primary">
+                    <i class="fa-solid fa-rocket"></i> 立即填表報名
+                </a>
+                <a href="https://line.me/ti/p/@504gkpdf" target="_blank" class="btn btn-line">
+                    <i class="fa-brands fa-line"></i> LINE 諮詢 (@504gkpdf)
+                </a>
+            </div>
+        </section>
+
+        <!-- 注意事項與免責聲明 -->
+        <section>
+            <h2><i class="fa-solid file-shield" style="color: var(--accent);"></i> 注意事項與法律免責聲明</h2>
+            <p style="font-size: 0.9rem; color: var(--text-light); margin-bottom: 15px;">
+                <strong>【注意事項】</strong><br>
+                1. 本課程不得錄音、錄影。<br>
+                2. 本課不提供補課、轉班、旁聽、代上課。<br>
+                3. 課程開始前一日務必完成繳費，未繳費者恕不提供講義。<br>
+                4. 退費需知：開課前1~3個工作日退費，退還80%費用，開通後恕不退費。
+            </p>
+            <div class="disclaimer">
+                <strong>【法律免責聲明】</strong><br>
+                1. 本課程之交易策略，無影射特定個股之投資建議；學員在投資前，務必善用獨立思考能力，作出自己的投資決策，如有任何損失概予本課程無關。<br>
+                2. 本課程隨機分析之個別有價證券暨期貨商品操作，無不當之財務利益關係！<br>
+                3. 作者與本課程或其內容相關的任何資訊與案例，純粹個人研究分享，並無要約暗示或鼓勵您買賣任何投資商品，也不具任何形式的投資建議，對於因本課程內容，提供者均不承擔任何損害賠償及法律的責任。請勿針對內容個案作過多聯想，投資人應獨立判斷，審慎評估並自負風險。
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 股海偵探 查大. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
