@@ -38,9 +38,19 @@
             background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
             color: white;
             text-align: center;
-            padding: 60px 20px;
+            padding: 50px 20px;
             border-radius: 0 0 30px 30px;
             box-shadow: 0 10px 25px -5px rgba(0,0,0,0.2);
+        }
+
+        /* 封面圖片樣式 */
+        .hero-image {
+            width: 100%;
+            max-width: 750px;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+            margin-bottom: 25px;
+            border: 2px solid rgba(245, 158, 11, 0.3);
         }
 
         header .badge {
@@ -250,7 +260,7 @@
             font-size: 1.15rem;
         }
 
-        /* 檢查表與清單 */
+        /* 檢查表清單 */
         .check-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -266,54 +276,6 @@
             font-weight: 600;
         }
 
-        /* 見證卡片 */
-        .testimonial-card {
-            background: #f8fafc;
-            border-left: 4px solid var(--accent);
-            padding: 20px;
-            margin-bottom: 15px;
-            border-radius: 0 10px 10px 0;
-        }
-        .testimonial-card h4 {
-            color: var(--primary);
-            margin-bottom: 5px;
-        }
-        .testimonial-card p {
-            color: var(--text-light);
-            font-size: 0.95rem;
-        }
-
-        /* 價格與資訊卡 */
-        .price-box {
-            background: #eff6ff;
-            border: 2px solid #3b82f6;
-            padding: 30px;
-            border-radius: 15px;
-            text-align: center;
-            margin: 25px 0;
-        }
-        .price-box .old-price {
-            text-decoration: line-through;
-            color: #94a3b8;
-            font-size: 1.2rem;
-        }
-        .price-box .new-price {
-            color: #dc2626;
-            font-size: 2.2rem;
-            font-weight: 900;
-            margin: 10px 0;
-        }
-
-        /* 免責聲明 */
-        .disclaimer {
-            font-size: 0.85rem;
-            color: #94a3b8;
-            background: #f1f5f9;
-            padding: 20px;
-            border-radius: 10px;
-            margin-top: 40px;
-        }
-
         footer {
             text-align: center;
             padding: 40px 20px;
@@ -326,15 +288,15 @@
 
     <header>
         <div class="container" style="padding:0;">
+            <!-- 插入粉專封面圖片 -->
+            <img src="粉專封面.jpg" alt="查大實戰技術 MTS主升系統" class="hero-image">
+            
             <div class="badge">🔥 實戰操盤養成班</div>
             <h1>《查大 MTS 主升段系統》</h1>
             <p>不教明牌｜不靠猜盤｜教你一套能用一輩子的交易系統</p>
             <div class="btn-group">
-                <a href="https://reurl.cc/NQZAo5" target="_blank" class="btn btn-primary">
-                    <i class="fa-solid fa-rocket"></i> 立即填表報名（特價 NT$ 9,888）
-                </a>
-                <a href="https://line.me/ti/p/@504gkpdf" target="_blank" class="btn btn-line">
-                    <i class="fa-brands fa-line"></i> 有問題直接私訊 LINE (@504gkpdf)
+                <a href="https://line.me/ti/p/@504gkpdf" target="_blank" class="btn btn-primary">
+                    <i class="fa-solid fa-rocket"></i> 立即搶佔名額，打造你的交易系統
                 </a>
             </div>
         </div>
@@ -356,7 +318,7 @@
             </div>
         </section>
 
-        <!-- 課程核心定位 -->
+        <!-- 核心定位 -->
         <section>
             <h2><i class="fa-solid fa-bullseye" style="color: var(--accent);"></i> 課程核心定位</h2>
             <table class="compare-table">
@@ -386,18 +348,6 @@
             </div>
         </section>
 
-        <!-- 課程亮點 -->
-        <section>
-            <h2><i class="fa-solid fa-star" style="color: var(--accent);"></i> 課程五大亮點</h2>
-            <ul class="process-list">
-                <li><strong>建立「看得懂」的技術分析系統：</strong>只靠 K 線、均線、切線，看懂多空與整理，知道什麼時候「不能買」。</li>
-                <li><strong>五大實戰步驟打造個人操作系統：</strong>選股 ➔ 進場 ➔ 持有 ➔ 停利 / 停損，每一筆單都有理由，不再靠感覺。</li>
-                <li><strong>擺脫情緒綁架，夜夜好眠：</strong>進場前先決定最多賠多少、設定好風險報酬比，下單後安心睡覺。</li>
-                <li><strong>新聞解碼術，不再追高：</strong>學會分辨哪些是情緒新聞、哪些會真正影響股價，拒絕當追高韭菜。</li>
-                <li><strong>免費工具與 XQ 程式選股：</strong>不需買昂貴軟體，學會免費工具與 XQ 程式選股邏輯，讓選股變成流暢程序。</li>
-            </ul>
-        </section>
-
         <!-- 課程四大模組 -->
         <section>
             <h2><i class="fa-solid fa-book-open" style="color: var(--accent);"></i> 課程四大核心模組</h2>
@@ -407,9 +357,9 @@
                     <p style="font-size: 0.95rem; color: var(--text-light);">看懂市場語言，看盤不再靠運氣。</p>
                     <ul>
                         <li>✔ K線、均線、切線核心觀念</li>
-                        <li>✔ K線五虎將快速判斷法</li>
                         <li>✔ 葛蘭碧八大法則</li>
-                        <li>✔ 支撐壓力與切線交易 SOP</li>
+                        <li>✔ 缺口追擊 vs 逃命時機</li>
+                        <li>✔ 標準進出場 SOP</li>
                     </ul>
                 </div>
                 <div class="module-card">
@@ -419,11 +369,11 @@
                         <li>✔ 投資必懂五大認知</li>
                         <li>✔ 重押 vs 分散實戰策略</li>
                         <li>✔ 資金配置公式</li>
-                        <li>✔ 定期定額／金字塔應用</li>
+                        <li>✔ 金字塔應用配置</li>
                     </ul>
                 </div>
                 <div class="module-card">
-                    <h3>📊 第三單元｜工具整合</h3>
+                    <h3>📊 第三單元｜工具解碼</h3>
                     <p style="font-size: 0.95rem; color: var(--text-light);">用工具賺錢，不被消息面操控。</p>
                     <ul>
                         <li>✔ KD／MACD 正確用法</li>
@@ -490,93 +440,31 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td>✔ 曾經賠過錢的人<br>✔ 想翻轉操作習慣的小白與老手<br>✔ 想建立系統、尋求穩定被動收入的人<br>✔ 不想再當市場韭菜的你</td>
-                        <td>❌ 想快速暴富<br>❌ 只想跟單不想學習者</td>
+                        <td>✔ 曾經賠過錢的人<br>✔ 想翻轉操作習慣的人<br>✔ 想建立系統的人<br>✔ 想長期穩定的人</td>
+                        <td>❌ 想快速暴富<br>❌ 只想跟單<br>❌ 不願學習的人</td>
                     </tr>
                 </tbody>
             </table>
         </section>
 
-        <!-- 講師介紹 -->
-        <section>
-            <h2><i class="fa-solid fa-chalkboard-user" style="color: var(--accent);"></i> 講師經歷與專業資格</h2>
-            <p><strong>股海偵探 (Charles)</strong></p>
-            <ul style="list-style: none; margin-top: 10px; color: var(--text-light);">
-                <li>🎓 國立大學研究所經濟財金相關科系畢業</li>
-                <li>💼 券商新進人員教育訓練講師</li>
-                <li>📈 私立大學財經分享課程講師、股票基礎班講師</li>
-            </ul>
-        </section>
-
-        <!-- 學員心得 -->
-        <section>
-            <h2><i class="fa-solid fa-comments" style="color: var(--accent);"></i> 學員真實心得見證</h2>
-            <div class="testimonial-card">
-                <h4>學員 A（股票小白）：第一筆單就賺回學費！</h4>
-                <p>「以前盲目跟風追高殺低，跟查大學習技術分析與SOP後，不再像無頭蒼蠅。第一筆單就賺回學費，太開心了！」</p>
-            </div>
-            <div class="testimonial-card">
-                <h4>學員 B（家庭主婦）：進出有依據，內心安穩</h4>
-                <p>「學會用趨勢線避開下跌風險，擺脫韭菜命運，靠穩定操作為家庭增添收入，進出有依據真的非常踏實。」</p>
-            </div>
-            <div class="testimonial-card">
-                <h4>學員 C（上班族）：告別當沖壓力，擁抱波段收益</h4>
-                <p>「改用波段與XQ程式選股後，大幅節省時間，即便忙於工作也能掌握風險、獲得穩定波段收益。」</p>
-            </div>
-            <div class="testimonial-card">
-                <h4>學員 D（退休投資人）：退休生活充實有成就感</h4>
-                <p>「透過系統化操作與XQ選股，冷靜操作穩定獲利，玩兩個星期就賺回學費，退休生活充滿樂趣！」</p>
-            </div>
-        </section>
-
-        <!-- 報名資訊與費用 -->
+        <!-- 師資承諾與報名 -->
         <section style="background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); color: white; text-align: center;">
             <h2 style="color: white; border-bottom-color: #334155; justify-content: center;">
-                <i class="fa-solid fa-gift" style="color: var(--accent);"></i> 課程資訊與專屬好禮
+                <i class="fa-solid fa-handshake-angle" style="color: var(--accent);"></i> 查大教學承諾
             </h2>
-            <p style="color: #cbd5e1; margin-bottom: 15px;">
-                📍 上課地點：Youtube影音平台 ｜ ⏳ 上課時數：4-6小時（附電子講義）
+            <p style="color: #cbd5e1; margin-bottom: 20px;">
+                ✔ 內容依學員狀況微調 ｜ ✔ 上課時數不縮水 ｜ ✔ 全流程實戰示範 ｜ ✔ 保證教學完整度<br>
+                <strong>不是錄影丟給你，是真正帶你會。</strong>
             </p>
-            <div style="color: var(--accent); font-weight: 700; margin-bottom: 20px;">
-                🎁 報名即贈：1. 私LINE課輔2個月 ｜ 2. 100天無限次數複習 ｜ 3. XS選股原始程式碼(跳空、突破、轉折)
-            </div>
-
-            <div class="price-box" style="background: rgba(255,255,255,0.1); border-color: var(--accent);">
-                <div class="old-price" style="color: #94a3b8;">原價：NT$ 16,888 元</div>
-                <div class="new-price" style="color: var(--accent);">限時特價：NT$ 9,888 元</div>
-            </div>
-
-            <div style="text-align: left; background: rgba(0,0,0,0.2); padding: 20px; border-radius: 10px; margin: 20px 0; color: #e2e8f0;">
-                <strong>💳 繳費方式：</strong><br>
-                玉山銀行 (代碼 808) 帳號：<strong>0761-968-111636</strong><br>
-                完成匯款後請提供：1. 帳號後5碼 2. 私訊 LINE (@504gkpdf) 確認。
+            
+            <div style="font-size: 1.25rem; font-weight: 700; color: var(--accent); margin: 30px 0 15px 0;">
+                這不是一堂課，是你投資人生的轉折點。
             </div>
 
             <div class="btn-group">
-                <a href="https://reurl.cc/NQZAo5" target="_blank" class="btn btn-primary">
-                    <i class="fa-solid fa-rocket"></i> 立即填表報名
+                <a href="https://line.me/ti/p/@504gkpdf" target="_blank" class="btn btn-primary">
+                    <i class="fa-brands fa-line"></i> 立即私訊 LINE 報名諮詢 (@504gkpdf)
                 </a>
-                <a href="https://line.me/ti/p/@504gkpdf" target="_blank" class="btn btn-line">
-                    <i class="fa-brands fa-line"></i> LINE 諮詢 (@504gkpdf)
-                </a>
-            </div>
-        </section>
-
-        <!-- 注意事項與免責聲明 -->
-        <section>
-            <h2><i class="fa-solid file-shield" style="color: var(--accent);"></i> 注意事項與法律免責聲明</h2>
-            <p style="font-size: 0.9rem; color: var(--text-light); margin-bottom: 15px;">
-                <strong>【注意事項】</strong><br>
-                1. 本課程不得錄音、錄影。<br>
-                2. 本課不提供補課、轉班、旁聽、代上課。<br>
-                3. 課程開始前一日務必完成繳費，未繳費者恕不提供講義。<br>
-                4. 退費需知：開課前1~3個工作日退費，退還80%費用，開通後恕不退費。
-            </p>
-            <div class="disclaimer">
-                <strong>【法律免責聲明】</strong><br>
-                1. 本課程之交易策略，無影射特定個股之投資建議；學員在投資前，務必善用獨立思考能力，作出自己的投資決策，如有任何損失概予本課程無關。<br>
-                2. 本課程隨機分析之個別有價證券暨期貨商品操作，無不當之財務利益關係！<br>
-                3. 作者與本課程或其內容相關的任何資訊與案例，純粹個人研究分享，並無要約暗示或鼓勵您買賣任何投資商品，也不具任何形式的投資建議，對於因本課程內容，提供者均不承擔任何損害賠償及法律的責任。請勿針對內容個案作過多聯想，投資人應獨立判斷，審慎評估並自負風險。
             </div>
         </section>
 
